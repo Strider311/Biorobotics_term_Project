@@ -111,10 +111,10 @@ class fer_tester():
 
         print("\n---------------------------------")
         print(f"\nEmotions mapping:\n{self.emotion_map}\n")
-        expected = pd.Series(self.result_df["expected_int"], name="Actual")
-        detected = pd.Series(self.result_df["detected_int"], name="Predicted")
-
-        cf_matrix = pd.crosstab(expected, detected)
+        actual = pd.Series(self.result_df["expected_int"], name="Actual")
+        predicted = pd.Series(self.result_df["detected_int"], name="Predicted")
+        
+        cf_matrix = pd.crosstab(actual, predicted, margins=True)
         print("\n---------------------------------\n")
         print(cf_matrix)
         print("\n---------------------------------\n")
